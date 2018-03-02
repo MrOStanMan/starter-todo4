@@ -3,6 +3,9 @@
     {ftask}
     {fpriority}
     {zsubmit}
+    {fsize}
+    {fgroup}
+    {fstatus}
 </form>
     {error}
 
