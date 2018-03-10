@@ -45,6 +45,9 @@ class Task_entity extends Entity {
             throw new InvalidArgumentException('Cannot be empty.');
         }
         
+        if (!is_numeric($size))
+            throw new Exception('Size must be numeric');
+        
         $this->size = $size;
     }
 
@@ -54,6 +57,10 @@ class Task_entity extends Entity {
         {
             throw new InvalidArgumentException('Cannot be empty.');
         }
+        
+        if (!is_numeric($group))
+            throw new Exception('Group must be numeric');
+        
         $this->group = $group;
     }
 
@@ -63,12 +70,19 @@ class Task_entity extends Entity {
         {
             throw new InvalidArgumentException('Cannot be empty.');
         }
+        
+        if($status !=1 || $status !=2)
+            throw new Exception('Status must be 1 for incomplete or 2 for complete');    
+        
         $this->status = $status;
     }
 
         
+    /**
     public function __get($key) {
         return $this->$key;
     }
+     * 
+     */
     
 }
