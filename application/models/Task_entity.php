@@ -13,14 +13,14 @@
  */
 class Task_entity extends Entity {
     //put your code here
-    private  $age;
-    
-    
-    
-    function setAge($age) {
+    private $age;
+
+    public function setAge($age) {
         $this->age = $age;
     }
 
-
+    public function __get($key) {
+        return $this->$key;
+    }
     
 }
