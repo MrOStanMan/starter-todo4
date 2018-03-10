@@ -9,6 +9,7 @@
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
+
             "version": "1.1.0",
             "source": {
                 "type": "git",
@@ -28,12 +29,14 @@
                 "athletic/athletic": "~0.1.8",
                 "ext-pdo": "*",
                 "ext-phar": "*",
+      
                 "phpunit/phpunit": "^6.2.3",
                 "squizlabs/php_codesniffer": "^3.0.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+
                     "dev-master": "1.2.x-dev"
                 }
             },
@@ -59,6 +62,7 @@
                 "constructor",
                 "instantiate"
             ],
+
             "time": "2017-07-22T11:58:36+00:00"
         },
         {
