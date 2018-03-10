@@ -20,7 +20,7 @@ class Task_entity extends Entity {
     private $status;
     //Create Setters for Form fields 
 
-    function setTask($task) {
+  public function setTask($task) {
         
         if (empty($task))
         {
@@ -29,17 +29,16 @@ class Task_entity extends Entity {
         $this->task = $task;
     }
 
-    function setPriority($priority) {
+   public function setPriority($priority) {
         
          if (empty($priority))
         {
             throw new InvalidArgumentException('Cannot be empty.');
         }
-        
         $this->priority = $priority;
     }
 
-    function setSize($size) {
+  public  function setSize($size) {
         
         if (empty($size))
         {
@@ -49,7 +48,7 @@ class Task_entity extends Entity {
         $this->size = $size;
     }
 
-    function setGroup($group) {
+   public function setGroup($group) {
         
         if (empty($group))
         {
@@ -58,7 +57,7 @@ class Task_entity extends Entity {
         $this->group = $group;
     }
 
-    function setStatus($status) {
+   public function setStatus($status) {
         
         if (empty($status))
         {

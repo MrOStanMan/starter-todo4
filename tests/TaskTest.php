@@ -22,10 +22,27 @@ class TaskTest extends TestCase
       $this->CI->load->model('task_entity');
       $this->Task = new Task_entity();
     }
-    public function testAgeSetter()
-    {
-                $expected = 27;
-                $this->Task->age = 27;
-                $this->assertEquals(27,$this->Task->age);
+ 
+    public function testInvalidPriority() {
+     $this->expectException('InvalidArgumentException');
+     $this->Task->priority = null;
     }
+    
+    public function testPriority() {
+        $this->Task->priority = 2;
+        $this->assertEquals(2, $this->Task->priority);
+    }
+    
+    public function testInvalidTask(){
+        $this->expectException('InvalidArgumentException');
+        $this->Task->task = null;
+    }
+    
+    public function testTask(){
+        $this->Task->task = 'Cleaning';
+        $this->assertEquals('Cleaning', $this->Task->task);
+        
+        
+    }
+         
   }
