@@ -39,7 +39,7 @@ class TaskListTest extends TestCase
     function testSizeEmptyReturningException(){
         $this->CI->load->model('task_entity');
         $entity = new Task_entity();
-        $entity->setSize();
+        $entity->setSize(null);
 
         
         
@@ -61,7 +61,7 @@ class TaskListTest extends TestCase
     function testGroupEmptyReturningException(){
         $this->CI->load->model('task_entity');
         $entity = new Task_entity();
-        $entity->setGroup(); 
+        $entity->setGroup(null); 
     }
     /**
      * @expectedException Exception
@@ -80,7 +80,7 @@ class TaskListTest extends TestCase
     function testStatusEmptyReturningException(){
         $this->CI->load->model('task_entity');
         $entity = new Task_entity();
-        $entity->setStatus(); 
+        $entity->setStatus(null); 
     }
     
     /**
