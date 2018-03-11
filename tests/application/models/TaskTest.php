@@ -100,5 +100,29 @@ class TaskTest extends TestCase
         $entity->setStatus(3);
         //$this->expectException(Exception::class);
     }
+    
+    function testSetSize(){
+        $this->CI->load->model('task_entity');
+        $entity = new Task_entity();
+        $expected = 3;
+        $entity->setSize($expected);
+        $this->assertEquals($expected, $entity->size);
+    }
+    
+    function testSetGroup(){
+        $this->CI->load->model('task_entity');
+        $entity = new Task_entity();
+        $expected = 3;
+        $entity->setGroup($expected);
+        $this->assertEquals($expected, $entity->group);
+    }
+    
+    function testSetStatus(){
+        $this->CI->load->model('task_entity');
+        $entity = new Task_entity();
+        $expected = 2;
+        $entity->setStatus($expected);
+        $this->assertEquals($expected, $entity->status);
+    }
          
   }
