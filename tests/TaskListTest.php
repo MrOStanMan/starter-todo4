@@ -33,5 +33,19 @@ class TaskListTest extends TestCase
         $this->assertTrue($completed < $size/2);
     }
     
+    function testNotMoreThan3InProgress(){
+        $inProgress = 0;
+        $data = $this->CI->tasks->all();
+        foreach($data as $task)
+        {
+            if ($task->status == 1)
+            {
+                $inProgress++;
+            }
+        }
+        $this->assertTrue($inProgress < 3);
+        
+    }
+    
     
 }
