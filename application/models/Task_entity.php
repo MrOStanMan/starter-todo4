@@ -77,12 +77,10 @@ class Task_entity extends Entity {
         $this->status = $status;
     }
 
-        
-    /**
+       
     public function __get($key) {
         return $this->$key;
     }
-     * 
-     */
+
     
 }
