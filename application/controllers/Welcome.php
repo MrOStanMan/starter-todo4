@@ -19,6 +19,7 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
+            phpinfo();
 		$this->data['pagebody'] = 'homepage';
                 $tasks = $this->tasks->all();   // get all the tasks
 
