@@ -39,10 +39,8 @@ class TaskTest extends TestCase
     }
     
     public function testTask(){
-        $this->Task->task = 'Cleaning';
-        $this->assertEquals('Cleaning', $this->Task->task);
-        
-        
+       $this->Task->task = 'Cleaning';
+       $this->assertEquals('Cleaning', $this->Task->task);      
     }
     
     /**
@@ -51,10 +49,7 @@ class TaskTest extends TestCase
     function testSizeEmptyReturningException(){
         $this->CI->load->model('task_entity');
         $entity = new Task_entity();
-        $entity->setSize(null);
-
-        
-        
+        $entity->setSize(null);  
     }
     /**
      * @expectedException Exception
