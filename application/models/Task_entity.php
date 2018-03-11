@@ -71,7 +71,7 @@ class Task_entity extends Entity {
             throw new InvalidArgumentException('Cannot be empty.');
         }
         
-        if($status !=1 || $status !=2)
+        if($status !=1 && $status !=2)
             throw new Exception('Status must be 1 for incomplete or 2 for complete');    
         
         $this->status = $status;
