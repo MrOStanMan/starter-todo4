@@ -151,23 +151,24 @@ class XML_Model extends Memory_Model
 		}
 		// --------------------
 		*/
-		$xmlDoc = new DOMDocument( "1.0");
-        $xmlDoc->preserveWhiteSpace = false;
-        $xmlDoc->formatOutput = true;
-        $data = $xmlDoc->createElement($this->xml->getName());
-        foreach($this->_data as $key => $value)
-        {
-            $task  = $xmlDoc->createElement($this->xml->children()->getName());
-            foreach ($value as $itemkey => $record ) {
-                $item = $xmlDoc->createElement($itemkey, htmlspecialchars($record));
-                $task->appendChild($item);
+            $xmlDoc = new DOMDocument( "1.0");
+            $xmlDoc->preserveWhiteSpace = false;
+            $xmlDoc->formatOutput = true;
+            $data = $xmlDoc->createElement($this->xml->getName());
+            foreach($this->_data as $key => $value)
+            {
+                $task  = $xmlDoc->createElement($this->xml->children()->getName());
+                
+                foreach ($value as $itemkey => $record ) {
+                    $item = $xmlDoc->createElement($itemkey, htmlspecialchars($record));
+                    $task->appendChild($item);
+                    }
+                    $data->appendChild($task);
                 }
-                $data->appendChild($task);
-            }
             $xmlDoc->appendChild($data);
-            $xmlDoc->saveXML($xmlDoc);
+            $xmlDoc->save ($xmlDoc);
             $xmlDoc->save($this->_origin);
-		}
+                }
 	}
 
 }
