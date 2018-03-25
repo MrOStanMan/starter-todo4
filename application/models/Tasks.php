@@ -15,13 +15,14 @@ class Tasks extends XML_Model {
 
         public function __construct()
         {
-                parent::__construct(APPPATH . '../data/tasks.xml', 'id');
+                parent::__construct('../data/tasks.xml', 'id', 'Task_entity');
         }
         
+        
         function load(){
-            if (($tasks = simplexml_load_file($this->_origin)) !== FALSE)
+            if (($this->xml= simplexml_load_file($this->_origin)) !== FALSE)
 		{
-			foreach ($tasks as $task) {
+			foreach ($this->xml as $task) {
 				$record = new stdClass();
 				$record->id = (int) $task['id'];
 				$record->task = (string) $task->task;
@@ -40,6 +41,33 @@ class Tasks extends XML_Model {
 		$this->reindex();
         }
         
+          
+        function store(){
+            if (($handle = fopen($this->_origin, "w")) !== FALSE)
+            {
+		//$xmlDoc = new DOMDocument( "1.0");
+                //$xmlDoc->preserveWhiteSpace = false;
+                //$xmlDoc->formatOutput = true;
+                $data = new SimpleXMLElement('<tasks/>');
+                foreach($this->_data as $key => $value)
+                {
+                    $task  = new SimpleXMLElement('<todo/>');
+                    foreach ($value as $itemkey => $record ) {
+                        if($itemkey == "id"){
+                            $task['id'] = $record;
+                        }else{
+                            $task->$itemkey  = $record;
+                        }
+                        
+                    }
+                    //$data->addChild($task);
+                }
+                //$xmlDoc->addChild($data);
+                //$xmlDoc->saveXML($xmlDoc);
+                //$xmlDoc->save($this->_origin);
+                $data -> saveXML(APPPATH . '../data/tasks.xml');
+            }
+        }
         
         function getCategorizedTasks()
         {
